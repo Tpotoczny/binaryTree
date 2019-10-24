@@ -20,6 +20,9 @@ bool search(binary_tree* bt, int key){
     }else{
         return true;
     }
+
+    /*binary_tree* searchPointer = BINARY_TREE->head
+    */
 }
 
 //Meaghan's
