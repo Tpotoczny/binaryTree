@@ -10,19 +10,7 @@ void initialize(binary_tree* bt){
 
 //Andrew's
 bool search(binary_tree* bt, int key){
-    if(bt->/*int value*/ == NULL){
-        return false;
-    }
-    else if(key < bt->/*int value*/){
-        return search(/*left reference*/, key);
-    }else if(key > bt->/*int value*/){
-        return search(/*right reference*/, key);
-    }else{
-        return true;
-    }
-
-    /*binary_tree* searchPointer = BINARY_TREE->head
-    */
+    searchNodes(bt->root, key);
 }
 
 //Meaghan's
@@ -80,5 +68,30 @@ int btsize(binary_tree* bt){
 
 //Andrew's
 int treeheight(binary_tree* bt){
+    return treeHeight(bt->root, 0);
+}
 
+//Height function using nodes
+int treeHeight(node* node, int h){
+    if(node == NULL)
+        return h-1;
+    int sizeLeft = treeHeight(node->left, h+1);
+    int sizeRight = treeHeight(node->right, h+1);
+    if(sizeLeft>sizeRight)
+        return sizeLeft;
+    return sizeRight;
+}
+
+//Search function using nodes
+bool searchNodes(node* node, int key){
+    if(node == NULL){
+        return false;
+    }
+    else if(node->key < key){
+        return searchNodes(node->left, key);
+    }else if(node->key > key){
+        return searchNodes(node->right, key);
+    }else{
+        return true;
+    }
 }
