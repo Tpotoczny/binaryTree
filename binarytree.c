@@ -10,7 +10,7 @@ void initialize(binary_tree* bt){
 
 //Andrew's
 bool search(binary_tree* bt, int key){
-    searchNodes(bt->root, key);
+    return searchNodes(bt->root, key);
 }
 
 //Meaghan's
