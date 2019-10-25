@@ -15,20 +15,20 @@ bool search(binary_tree* bt, int key){
 
 //Meaghan's
 void insert(binary_tree* bt, int item){
-    binary_tree* newNode = NULL; //newNode = new item inserted
-    binary_tree* tmpNext = NULL; //used to look at each node
+    node* newNode = NULL; //newNode = new item inserted
+    node* tmpNext = NULL; //used to look at each node
 
-    newNode = (binary_tree*)malloc(sizeof(binary_tree));
+    newNode = (node*)malloc(sizeof(node));
     newNode->binary_tree = item;
     newNode->nextNodePtr = NULL;
 
-    if (bt->head == NULL){
-        bt->head = newNode;
+    if (bt->root == NULL){
+        bt->root = newNode;
         bt->size += 1;
     }
     else{
-        tmpNext = l->head;
-        while(tmpNext->left != NULL || tmpNext-> right != NULL){ //go down tree (not inserting yet)
+        tmpNext = bt->root;
+        while(tmpNext->left != NULL || tmpNext->right != NULL){ //go down tree (not inserting yet)
             if (newNode->binary_tree < tmpNext){ //if the input is less than the current place in the tree...
                 tmpNext = tmpNext->left //go left
             }
