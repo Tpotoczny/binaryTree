@@ -64,12 +64,23 @@ void printinorder(binary_tree* bt){
 
 //Meaghan's
 void printpreorder(binary_tree* bt){
+  if((bt->root) == NULL){// node is null returns -1
+    return -1;
+  }
 
+  printf("%d\n", (bt->root)->data);// prints node data
+  printpreorder((bt->root)->left);//print left recursively
+  printpreorder((bt->root)->right);//print right recursively
 }
 
 //Andrew's
 void printpostorder(binary_tree* bt){
-
+  if(bt->root == NULL){ // node is null returns -1
+    return -1;
+  }
+  printpostorder((bt->root)->left); //print left recursively
+  printpostorder((bt->root)->right);//print right recursively
+  printf("%d\n", (bt->root)->data);//prints node->root data val
 }
 
 //Meaghan's
@@ -103,5 +114,4 @@ bool searchNodes(node* node, int key){
         return searchNodes(node->right, key);
     else
         return true;
-    
 }
