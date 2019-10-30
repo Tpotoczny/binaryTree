@@ -108,9 +108,9 @@ int treeHeight(node* node, int h){
 bool searchNodes(node* node, int key){
     if(node == NULL)
         return false;
-    else if(node->key < key)
+    else if(node->data < key)
         return searchNodes(node->left, key);
-    else if(node->key > key)
+    else if(node->data > key)
         return searchNodes(node->right, key);
     else
         return true;
