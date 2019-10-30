@@ -2,10 +2,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "binarytree.h"
+#include "node.h"
 
 //Tim's
-void initialize(binary_tree* bt){
 
+void initialize(binary_tree* bt){
+    bt->size = 0;
+    bt->root = NULL;
 }
 
 //Andrew's
@@ -45,10 +48,18 @@ void insert(binary_tree* bt, int item){
         bt->size += 1;
     }
 }
-
 //Tim's
-void printinorder(binary_tree* bt){
+void printnodesinorder(node* pnode) {
+    if (pnode == NULL){
+        return;
+    }
+    printnodesinorder(pnode->left);
+    printf("%d ", pnode->data);
+    printnodesinorder(pnode->right);
+}
 
+void printinorder(binary_tree* bt){
+    printnodesinorder(bt->root)
 }
 
 //Meaghan's

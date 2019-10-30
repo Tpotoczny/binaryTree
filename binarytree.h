@@ -4,9 +4,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include "node.h"
 typedef struct binary_tree_struct
 {
-    
+    int size;
+    node* root;
 }binary_tree;
 
 void initialize(binary_tree* bt);
