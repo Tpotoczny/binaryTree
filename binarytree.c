@@ -61,10 +61,11 @@ void printnodesinorder(node* pnode) {
 }
 
 void printinorder(binary_tree* bt){
-    printnodesinorder(bt->root)
+    printnodesinorder(bt->root);
 }
 
-//Meaghan's
+//Rob's
+/******************************FIXME***********************/
 void printpreorder(binary_tree* bt){
   if((bt->root) == NULL){// node is null returns -1
     return -1;
@@ -75,7 +76,8 @@ void printpreorder(binary_tree* bt){
   printpreorder((bt->root)->right);//print right recursively
 }
 
-//Andrew's
+//Rob's
+/******************************FIXME***********************/
 void printpostorder(binary_tree* bt){
   if(bt->root == NULL){ // node is null returns -1
     return -1;
