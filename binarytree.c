@@ -65,26 +65,32 @@ void printinorder(binary_tree* bt){
 }
 
 //Rob's
-/******************************FIXME***********************/
 void printpreorder(binary_tree* bt){
-  if((bt->root) == NULL){// node is null returns -1
-    return -1;
-  }
+    printnodespreorder(bt->root);
+}
 
-  printf("%d\n", (bt->root)->data);// prints node data
-  printpreorder((bt->root)->left);//print left recursively
-  printpreorder((bt->root)->right);//print right recursively
+void printnodespreorder(node* pnode){
+    if (pnode == NULL){
+        return;
+    }
+    printf("%d\n", pnode->data);// prints node data
+    printnodespreorder(pnode->left);//print left recursively
+    printnodespreorder(pnode->right);//print right recursively
 }
 
 //Rob's
 /******************************FIXME***********************/
 void printpostorder(binary_tree* bt){
-  if(bt->root == NULL){ // node is null returns -1
-    return -1;
-  }
-  printpostorder((bt->root)->left); //print left recursively
-  printpostorder((bt->root)->right);//print right recursively
-  printf("%d\n", (bt->root)->data);//prints node->root data val
+    printnodespostorder(bt->root);
+}
+
+void printnodespostorder(node* node){
+    if (node == NULL){
+        return;
+    }
+    printpostorder(node->left); //print left recursively
+    printpostorder(node->right);//print right recursively
+    printf("%d\n", node->data);//prints node->root data val
 }
 
 //Meaghan's

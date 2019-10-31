@@ -22,5 +22,7 @@ int treeheight(binary_tree* bt);
 int treeHeight(node* node, int h);
 bool searchNodes(node* node, int key);
 void printnodesinorder(node* pnode);
+void printnodespreorder(node* pnode);
+void printnodespostorder(node* pnode);
 
 #endif
