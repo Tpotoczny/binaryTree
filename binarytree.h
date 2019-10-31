@@ -19,5 +19,8 @@ void printpreorder(binary_tree* bt);
 void printpostorder(binary_tree* bt);
 int btsize(binary_tree* bt);
 int treeheight(binary_tree* bt);
+int treeHeight(node* node, int h);
+bool searchNodes(node* node, int key);
+void printnodesinorder(node* pnode);
 
 #endif
