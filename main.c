@@ -4,10 +4,20 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-int main(void){
+int main(int argc, char* argv[]){
     //variables
     binary_tree bt;
     bool found;
+    
+    //should only work if the only argument entered is the filename
+    FILE *file = fopen(argv[0], "r");
+    int readIn;
+    char emptyChar;
+    while(!feof(file) && emptyChar != '\n'){
+        fscanf(file, "%d", &readIn);
+        fscanf(file, "%c", &emptyChar);
+        insert(&bt, readIn);
+    }
 
     //copied from assignment PDF
     printf("Print in order\n");
