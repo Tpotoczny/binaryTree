@@ -18,35 +18,37 @@ bool search(binary_tree* bt, int key){
 
 //Meaghan's
 void insert(binary_tree* bt, int item){
-    node* newNode = NULL; //newNode = new item inserted
-    node* tmpNext = NULL; //used to look at each node
+    node* newNode; //newNode = new item inserted
+    node* tmpNext; //used to look at each node
+    node* prevPtr;
 
     newNode = (node*)malloc(sizeof(node));
-    newNode->binary_tree = item;
-    newNode->nextNodePtr = NULL;
+    newNode->data = item;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    bool leftRight = false; //false for left, true for right
 
     if (bt->root == NULL){
         bt->root = newNode;
-        bt->size += 1;
     }
     else{
         tmpNext = bt->root;
-        while(tmpNext->left != NULL || tmpNext->right != NULL){ //go down tree (not inserting yet)
-            if (newNode->binary_tree < tmpNext){ //if the input is less than the current place in the tree...
-                tmpNext = tmpNext->left //go left
+        while(tmpNext != NULL){
+            prevPtr = tmpNext;              //assign the backwards pointer
+            if(item < tmpNext->data){       //if value is less than node go left
+                tmpNext = tmpNext->left;
+                leftRight = false;
+            }else{                          //if value is greater than node, go right
+                tmpNext = tmpNext->right;
+                leftRight = true;
             }
-            else{
-                tmpNext = tmpNext->right; //otherwise, go right
-            }
         }
-        if (newNode->binary_tree < tmpNext){ //this is where it's inserted
-            tmpNext->left = newNode; // if less than, insert to left
-        }
-        else{
-            tmpNext->right = newNode; //if more than, insert to right
-        }
-        bt->size += 1;
+        if(leftRight)
+            prevPtr->right = newNode;
+        else
+            prevPtr->left = newNode;
     }
+    bt->size += 1;
 }
 //Tim's
 void printnodesinorder(node* pnode) {
@@ -95,13 +97,13 @@ int treeheight(binary_tree* bt){
 
 //Height function using nodes
 int treeHeight(node* node, int h){
-    if(node == NULL)
+    if(node == NULL) //base case, return height-1 as a null node does not count
         return h-1;
-    int sizeLeft = treeHeight(node->left, h+1);
-    int sizeRight = treeHeight(node->right, h+1);
+    int sizeLeft = treeHeight(node->left, h+1); //move down left
+    int sizeRight = treeHeight(node->right, h+1); //move down right
     if(sizeLeft>sizeRight)
-        return sizeLeft;
-    return sizeRight;
+        return sizeLeft;    //if size left is greater than size right, return it
+    return sizeRight;       //otherwise return size right
 }
 
 //Search function using nodes
