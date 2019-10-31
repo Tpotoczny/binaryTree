@@ -23,14 +23,12 @@ void insert(binary_tree* bt, int item){
     node* prevPtr;
 
     newNode = (node*)malloc(sizeof(node));
-    printf("%p", bt->root);
     newNode->data = item;
     newNode->left = NULL;
     newNode->right = NULL;
     bool leftRight = false; //false for left, true for right
 
     if (bt->root == NULL){
-        printf("I made it into the root part\n");
         bt->root = newNode;
     }
     else{
@@ -75,7 +73,7 @@ void printnodespreorder(node* pnode){
     if (pnode == NULL){
         return;
     }
-    printf("%d\n", pnode->data);// prints node data
+    printf("%d ", pnode->data);// prints node data
     printnodespreorder(pnode->left);//print left recursively
     printnodespreorder(pnode->right);//print right recursively
 }
@@ -88,7 +86,7 @@ void printnodespostorder(node* node){
     if(node != NULL){
         printnodespostorder(node->left);
         printnodespostorder(node->right);
-        printf("%d\n", node->data);
+        printf("%d ", node->data);
     }
 }
 //Rob's

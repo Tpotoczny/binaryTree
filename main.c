@@ -35,7 +35,6 @@ int main(int argc, char* argv[]){
 
     fscanf(file, "%d", &readIn);
     while(!feof(file)){
-        printf("%d \n", readIn);
         insert(&bt, readIn);
         fscanf(file, "%d", &readIn);
     }
@@ -56,7 +55,7 @@ int main(int argc, char* argv[]){
     
     
     //copied from assignment PDF
-    /*printf("Print in order\n");
+    printf("Print in order\n");
     printinorder(&bt);
     printf("\nPrint pre order\n");
     printpreorder(&bt);
@@ -72,7 +71,7 @@ int main(int argc, char* argv[]){
         printf("FOUND 38\n");
     }
     printf("Number of elements in tree: %d\n", btsize(&bt));
-    printf("Tree height: %d\n", treeheight(&bt));*/
+    printf("Tree height: %d\n", treeheight(&bt));
     
     return 0;
 }
