@@ -23,12 +23,14 @@ void insert(binary_tree* bt, int item){
     node* prevPtr;
 
     newNode = (node*)malloc(sizeof(node));
+    printf("%p", bt->root);
     newNode->data = item;
     newNode->left = NULL;
     newNode->right = NULL;
     bool leftRight = false; //false for left, true for right
 
     if (bt->root == NULL){
+        printf("I made it into the root part\n");
         bt->root = newNode;
     }
     else{
