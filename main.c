@@ -5,20 +5,46 @@
 #include <stdbool.h>
 
 int main(int argc, char* argv[]){
+
     //variables
     binary_tree bt;
+    bt.size = 0;
     bool found;
+    char num[50];
     
-    //should only work if the only argument entered is the filename
-    FILE *file = fopen(argv[0], "r");
-    int readIn;
-    char emptyChar;
-    while(!feof(file) && emptyChar != '\n'){
-        fscanf(file, "%d", &readIn);
-        fscanf(file, "%c", &emptyChar);
-        insert(&bt, readIn);
+    //argument error throws
+    if(argc > 1){
+        printf("Error: Too many arguments");
+        return 1;
+    }else if(argc < 1){
+        printf("Error: No arguments");
+        return 1;
     }
+    FILE *file = fopen(argv[0], "r");
+    
+    //attempts at unit testing
+    //FILE *file = fopen("testFile.txt", "r");
 
+    int readIn;
+
+    //if the file doesnt exist throw an error
+    if (file == NULL) {
+        printf("Could not open file myfile.txt.\n");
+        return 1;
+    }
+    //gets the values from the file and converts them to integers, then inserts them
+    //THROWS SEGMENTATION FAULT, I DO NOT KNOW WHY
+    do{
+        fgets(num, 50, file);
+        int placeholder = 0;
+        while(num[placeholder] != '\n' && num[placeholder] != '\0'){
+            placeholder += 1;
+        }
+        num[placeholder] = '\0';
+        readIn = atoi(num);
+        insert(&bt, readIn);
+    }while((!feof(file));
+    
     //copied from assignment PDF
     printf("Print in order\n");
     printinorder(&bt);
@@ -37,6 +63,6 @@ int main(int argc, char* argv[]){
     }
     printf("Number of elements in tree: %d\n", btsize(&bt));
     printf("Tree height: %d\n", treeheight(&bt));
-
+    
     return 0;
 }
