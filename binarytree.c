@@ -78,9 +78,20 @@ void printnodespreorder(node* pnode){
     printnodespreorder(pnode->right);//print right recursively
 }
 
+void printpostorder(binary_tree* bt){
+    printnodespostorder(bt->root);
+}
+
+void printnodespostorder(node* node){
+    if(node != NULL){
+        printnodespostorder(node->left);
+        printnodespostorder(node->right);
+        printf("%d\n", node->data);
+    }
+}
 //Rob's
 /******************************FIXME***********************/
-void printpostorder(binary_tree* bt){
+/*void printpostorder(binary_tree* bt){
     printnodespostorder(bt->root);
 }
 
@@ -92,6 +103,7 @@ void printnodespostorder(node* node){
     printpostorder(node->right);//print right recursively
     printf("%d\n", node->data);//prints node->root data val
 }
+*/
 
 //Meaghan's
 int btsize(binary_tree* bt){
