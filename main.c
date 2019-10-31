@@ -43,7 +43,7 @@ int main(int argc, char* argv[]){
         num[placeholder] = '\0';
         readIn = atoi(num);
         insert(&bt, readIn);
-    }while((!feof(file));
+    }while(!feof(file));
     
     //copied from assignment PDF
     printf("Print in order\n");
